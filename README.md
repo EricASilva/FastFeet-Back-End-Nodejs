@@ -3,14 +3,15 @@
 </h1>
 
 <h3 align="center">
-  Desafio 2: FastFeet, o início
+  Desafio BootCamp 10 RocketSeat
 </h3>
 
 <h3 align="center">
-  :warning: Etapa 1/4 do Desafio Final :warning:
+###Desafio 01: :white_check_mark:
+###Desafio 02: :white_check_mark:
 </h3>
 
-<p>Esse desafio faz parte do Desafio Final, que é uma aplicação completa (Back-end, Front-end e Mobile) que é avaliada para emissão do Certificado do Bootcamp GoStack, por isso é fundamental que ele seja feito com muito empenho!</p>
+<p>Esse desafio faz parte do Desafio Final, que é uma aplicação completa (Back-end, Front-end e Mobile) que é avaliada para emissão do Certificado do Bootcamp GoStack, toda parte e back-end fica neste repositório</p>
 
 <blockquote align="center">“Não espere para plantar, apenas tenha paciência para colher”!</blockquote>
 
@@ -29,16 +30,52 @@
 </p>
 
 <p align="center">
-  <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-sobre-o-desafio">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-entrega">Entrega</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
-## :rocket: Sobre o desafio
+## :rocket: About
 
 A aplicação que iremos dar início ao desenvolvimento a partir de agora é um app para uma transportadora fictícia, o FastFeet.
 
 Nesse primeiro desafio vamos criar algumas funcionalidades básicas que aprendemos ao longo das aulas até aqui. Esse projeto será desenvolvido aos poucos até o fim da sua jornada onde você terá uma aplicação completa envolvendo back-end, front-end e mobile, que será utilizada para a **certificação do bootcamp**, então, bora pro código!
+
+<a href="https://nodejs.org/pt/"> NodeJS 12.14.1 </a>
+
+## Installation
+
+Clone the project with
+
+```sh
+git clone https://github.com/alexiakattah/fastfeet-api
+```
+
+Get in the path project, then install the dependencies with:
+
+```sh
+yarn
+```
+
+Then, you have to create your postgres database (Or another if you want) and fill your own fields in .env file.
+
+Now, you have to create tables with the command:
+
+```sh
+yarn sequelize db:migrate
+```
+
+After database config, you can start the server with:
+
+```sh
+yarn start
+```
+
+If you are in development environment, you can use the development server:
+
+```sh
+yarn dev
+```
 
 ### **Um pouco sobre as ferramentas**
 
