@@ -7,8 +7,9 @@
 </h3>
 
 <h3 align="center">
-###Desafio 01: :white_check_mark:
-###Desafio 02: :white_check_mark:
+### Desafio 01: :white_check_mark:
+### Desafio 02: :white_check_mark:
+### Desafio 03: :white_check_mark:
 </h3>
 
 <p>Esse desafio faz parte do Desafio Final, que é uma aplicação completa (Back-end, Front-end e Mobile) que é avaliada para emissão do Certificado do Bootcamp GoStack, toda parte e back-end fica neste repositório</p>
