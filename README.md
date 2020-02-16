@@ -12,7 +12,7 @@
 ### Desafio 03: :white_check_mark:
 </h3>
 
-<p>Esse desafio faz parte do Desafio Final, que é uma aplicação completa (Back-end, Front-end e Mobile) que é avaliada para emissão do Certificado do Bootcamp GoStack, toda parte e back-end fica neste repositório</p>
+<p>Esse desafio faz parte do Desafio Final do Bootcamp da RocketSeat. Esta é uma API REST construída para uma transportadora fictícia, A FastFeet. </p>
 
 <blockquote align="center">“Não espere para plantar, apenas tenha paciência para colher”!</blockquote>
 
