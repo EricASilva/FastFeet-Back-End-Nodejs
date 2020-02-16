@@ -4,34 +4,35 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true,
         autoIncrement: true,
+        primaryKey: true,
       },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
       street: {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      number: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       complement: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
-      number: {
+      state: {
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      uf: {
-        type: Sequelize.STRING(2),
         allowNull: false,
       },
       city: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      zip_code: {
+      zipcode: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -47,6 +48,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable('recipient');
+    return queryInterface.dropTable('recipients');
   },
 };

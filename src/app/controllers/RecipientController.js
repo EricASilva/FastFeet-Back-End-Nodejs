@@ -3,57 +3,62 @@ import Recipient from '../models/Recipient';
 
 class RecipientController {
   async store(req, res) {
-    const schema = Yup.object().shape({
+    const schema = Yup.object(req.body).shape({
       name: Yup.string().required(),
       street: Yup.string().required(),
+      number: Yup.number().required(),
       complement: Yup.string(),
-      number: Yup.string().required(),
-      zip_code: Yup.string().required(),
-      uf: Yup.string()
-        .required()
-        .max(2),
+      state: Yup.string().required(),
       city: Yup.string().required(),
+      zipcode: Yup.string().required(),
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validations fails' });
+      return res.status(400).json({ error: 'Validation fail' });
     }
-    const newRecipient = await Recipient.create(req.body);
 
-    return res.status(201).json(newRecipient);
+    const recipientExists = await Recipient.findOne({
+      where: { name: req.body.name },
+    });
+
+    if (recipientExists) {
+      return res.status(400).json({ error: 'Recipient already exists' });
+    }
+
+    const recipient = await Recipient.create(req.body);
+    return res.json(recipient);
   }
 
   async update(req, res) {
-    const schema = Yup.object().shape({
+    const schema = Yup.object(req.body).shape({
       name: Yup.string(),
-      zip_code: Yup.string(),
-      street: Yup.string().when('zip_code', (zip_code, field) =>
-        zip_code ? field.required() : field
-      ),
+      street: Yup.string(),
+      number: Yup.number(),
       complement: Yup.string(),
-      number: Yup.string(),
-      uf: Yup.string().max(2),
-
-      city: Yup.string().when('uf', (uf, field) =>
-        uf ? field.required() : field
-      ),
+      state: Yup.string(),
+      city: Yup.string(),
+      zipcode: Yup.string(),
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validations fails' });
+      return res.status(400).json({ error: 'Validation fail' });
     }
 
-    const { id } = req.params;
+    const { name } = req.body;
 
-    const recipient = await Recipient.findByPk(id);
+    const recipient = await Recipient.findByPk(req.params.id);
 
-    if (!recipient) {
-      return res.status(400).json({ error: 'Recipient does not exist.' });
+    if (name && name !== recipient.name) {
+      const recipientExists = await Recipient.findOne({ where: { name } });
+
+      if (recipientExists) {
+        return res.status(400).json({ error: 'Recipients already exists' });
+      }
     }
 
-    const newRecipient = await recipient.update(req.body);
+    const updatedRecipient = await recipient.update(req.body);
 
-    return res.status(200).json(newRecipient);
+    return res.json(updatedRecipient);
   }
 }
 
